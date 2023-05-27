@@ -84,6 +84,12 @@ const Home = () => {
             fileInputRef.current.value = '';
         }
     };
+
+    const handleKeyDown = (e) => {
+        if (e.code === "Enter") {
+            handleSubmit(e)
+        }
+    };
     
 
     return (
@@ -102,9 +108,9 @@ const Home = () => {
                     <CloudDoneOutlinedIcon fontSize="large" /> 
                     }
                 </button>
-                <input className="upload-input" type="text"  value={imageName} onChange={(e)=>handleNameChange(e.target.value)} />
+                <input className="upload-input" type="text"  value={imageName} onChange={(e)=>handleNameChange(e.target.value)} onKeyDown={handleKeyDown}/>
                 <button className="upload-icon" style={{ width:"100px", height: "40px", marginTop: "0px", border: "0", backgroundColor: "rgb(48, 48, 48)", color: "#edf5e1", fontFamily: 'Reem Kufi Fun',
-                }} onClick={(e)=>handleSubmit(e)}>UPLOAD</button>
+                }} onClick={(e)=>handleSubmit(e)} onKeyDown={handleKeyDown}>UPLOAD</button>
                 
                 {response && <div
                 className={response=="Success" ? "upload-success" : "upload-failure" }
