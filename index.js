@@ -10,7 +10,11 @@ const imageRoute= require("./routes/image")
 
 
 app.use(express.json())
-app.use(cors())
+
+app.use(cors({
+    credentials: true,
+    origin: true
+}))
 
 mongoose.connect(
     process.env.DB_CONNECTION
