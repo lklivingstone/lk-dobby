@@ -142,16 +142,8 @@ const Home = () => {
         </div>
         <a 
         href="/logout"
-        className="logout-text"
-        style={{
-            bottom: "50px",
-            color: "rgb(48, 48, 48)",
-            textDecoration: "none",
-            "&:hover": {
-                textDecoration: "none",
-                cursor: "pointer"
-            }
-        }}
+        className="logout-text-home"
+
         >
             LOGOUT
         </a>

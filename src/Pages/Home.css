@@ -116,6 +116,8 @@ Home.js
 }
 
 .logout-text-home {
+    position: fixed;
+    transform: rotate(-90deg);
     bottom: 50px;
     color: rgb(48, 48, 48);
     text-decoration: none;
