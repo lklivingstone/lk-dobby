@@ -1,15 +1,10 @@
 import { logOut } from "../Redux/UserRedux";
-import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch  } from "react-redux";
 import { useState, useEffect } from "react";
 import axios from 'axios';
-
 import SearchIcon from '@mui/icons-material/Search';
 import IconButton from '@mui/material/IconButton';
-import Paper from '@mui/material/Paper';
 import InputBase from '@mui/material/InputBase';
-import { Grid, Container } from "@mui/material";
-import { Box } from "@mui/system";
 import Card from '@mui/material/Card';
 import CardHeader from '@mui/material/CardHeader';
 import CardMedia from '@mui/material/CardMedia';
@@ -70,11 +65,9 @@ export const Gallery = () => {
         else {
 
             const query = searchInput?.toLowerCase();
-            console.log(1, query)
 
             const regex = new RegExp(query, 'i');
             const filtered = imageList.filter((image) => regex.test(image.name?.toLowerCase()));
-            console.log(filtered)
             setFilteredImages(filtered);
         }
     };
@@ -94,14 +87,14 @@ export const Gallery = () => {
 
     const renderImages= filteredImages.map((image) => (
         <Card key={image._id} sx={{ maxWidth: "80%", margin: "30px" }}>
-        <CardHeader
-            title= {image.name}
-        />
-        <CardMedia
-            component="img"
-            image={image.url}
-            alt="img"
-        />
+            <CardHeader
+                title= {image.name}
+            />
+            <CardMedia
+                component="img"
+                image={image.url}
+                alt="img"
+            />
         </Card>
 
 
@@ -157,31 +150,31 @@ export const Gallery = () => {
             }}
         >
             
-        <a 
-        href="/logout"
-        style={{
-            color: "rgb(48, 48, 48)",
-            textDecoration: "none",
-            paddingRight: "20px"
-        }}
-        >
-            <p>
-            LOGOUT    
-            </p>
-        </a> 
+            <a 
+            href="/logout"
+            style={{
+                color: "rgb(48, 48, 48)",
+                textDecoration: "none",
+                paddingRight: "20px"
+            }}
+            >
+                <p>
+                LOGOUT    
+                </p>
+            </a> 
 
-        <a 
-        href="/"
-        style={{
-            color: "rgb(48, 48, 48)",
-            textDecoration: "none",
-        }}
-        >
-            <p>
-            HOME    
-            </p>
-            
-        </a>
+            <a 
+            href="/"
+            style={{
+                color: "rgb(48, 48, 48)",
+                textDecoration: "none",
+            }}
+            >
+                <p>
+                HOME    
+                </p>
+                
+            </a>
         </div> 
         </>
     )
