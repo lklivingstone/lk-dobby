@@ -95,39 +95,44 @@ const Home = () => {
     return (
     <>
         <Navbar />
-        <div style={{display: "flex", width: "100%", height: "80vh", padding: "20px"}}>
-            <div style={{display: "flex", flex: 6, height: "100%", width: "100%", justifyContent:"center",  alignItems: "center", flexDirection: "column"}}>
+        <div className= "container">
+            <div className='flex-6'>
                 <input
-                    type="file"
-                    style={{ display: 'none' }}
-                    ref={fileInputRef}
-                    onChange={handleFileInputChange}
+                type="file"
+                style={{ display: 'none' }}
+                ref={fileInputRef}
+                onChange={handleFileInputChange}
                 />
-                <button className="upload-icon" style={{}} onClick={handleButtonClick}>
-                    {!image ? <FileUploadOutlinedIcon fontSize="large"  /> : 
-                    <CloudDoneOutlinedIcon fontSize="large" /> 
-                    }
-                </button>
-                <input className="upload-input" type="text"  value={imageName} onChange={(e)=>handleNameChange(e.target.value)} onKeyDown={handleKeyDown}/>
-                <button className="upload-icon" style={{ width:"100px", height: "40px", marginTop: "0px", border: "0", backgroundColor: "rgb(48, 48, 48)", color: "#edf5e1", fontFamily: 'Reem Kufi Fun',
-                }} onClick={(e)=>handleSubmit(e)} onKeyDown={handleKeyDown}>UPLOAD</button>
-                
-                {response && <div
-                className={response=="Success" ? "upload-success" : "upload-failure" }
-                style={{
-                    paddingTop: "10px"
-                }}>
-                    <p>{response}</p>
-                </div>}
-            </div>
-            <div style={{width:"1px", backgroundColor: "rgb(48, 48, 48)", height: "80%" }}></div>
-            <div style={{flex: 4, display: "flex", justifyContent:"center"}}>
+                    <button 
+                    className="upload-icon" 
+                    onClick={handleButtonClick}>
+                        {
+                        !image ? <FileUploadOutlinedIcon fontSize="large"  /> : 
+                        <CloudDoneOutlinedIcon fontSize="large" /> 
+                        }
+                    </button>
+                <input 
+                className="upload-input" 
+                type="text" 
+                value={imageName} 
+                onChange={(e)=>handleNameChange(e.target.value)} 
+                onKeyDown={handleKeyDown}/>
+                    <button 
+                    className="upload-button" 
+                    onClick={(e)=>handleSubmit(e)} 
+                    onKeyDown={handleKeyDown}>
+                        UPLOAD
+                    </button>
+                    {response && 
+                    <div
+                    className={response=="Success" ? "upload-success" : "upload-failure" }>
+                        <p>{response}</p>
+                    </div>}
+                </div>
+            <div className='vertical-line'></div>
+            <div className='flex-4'>
                 <div 
                 className="gallery-div"
-                style={{
-                    width: "80%",
-                    height: "80%", display: "flex", justifyContent:"center",  alignItems: "center", flexDirection: "column", position: "relative"
-                }}
                 onClick={()=>{navigate("/gallery")}}
                 >
                     <img className="gallery-image" src={galleryImage} alt="My Image" />
@@ -145,12 +150,7 @@ const Home = () => {
             "&:hover": {
                 textDecoration: "none",
                 cursor: "pointer"
-                // backgroundColor: Colors.light_gray
             }
-        }}
-        
-        onClick={(e)=> {
-
         }}
         >
             LOGOUT
