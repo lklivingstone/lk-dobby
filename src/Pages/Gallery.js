@@ -8,7 +8,6 @@ import SearchIcon from '@mui/icons-material/Search';
 import IconButton from '@mui/material/IconButton';
 import Paper from '@mui/material/Paper';
 import InputBase from '@mui/material/InputBase';
-import { changeSearchQuery } from "../Redux/UserRedux";
 import { Grid, Container } from "@mui/material";
 import { Box } from "@mui/system";
 import Card from '@mui/material/Card';
@@ -18,10 +17,8 @@ import CardMedia from '@mui/material/CardMedia';
 export const Gallery = () => {
     const token = useSelector((state) => state.user.token);
     const userID = useSelector((state) => state.user.user._id);
-    const searchQuery=  useSelector((state) => state.user.searchQuery);
     const dispatch= useDispatch()
 
-    // console.log(token, userID, searchQuery)
     const [imageList, setImageList]= useState([]);
     const [filteredImages, setFilteredImages]= useState([]);
     const [searchInput, setSearchInput] = useState("");
@@ -36,7 +33,7 @@ export const Gallery = () => {
                       'token': `Bearer ${token}`
                     }
                 };
-                const res= await axios.get(`http://localhost:5001/api/image/find/${userID}`, config)
+                const res= await axios.get(`https://lk-dobby.onrender.com/api/image/find/${userID}`, config)
                 
                 setImageList(res.data)
             } catch(error) {

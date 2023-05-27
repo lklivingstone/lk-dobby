@@ -92,7 +92,7 @@ export const Login = () => {
                                 color: "#e1e6f5",
                                 cursor: "not-allowed"
                             }}} variant="filled" onClick={handleClick} disabled={isFetching}>
-                                LOGIN
+                                {isFetching ? "LOGGING IN..." : "LOGIN"}
                         </button>
                     </div>
                     <div style={{
@@ -113,10 +113,10 @@ export const Login = () => {
                                 Register
                         </Link>
                     </div>
-                    {/* {error && <span style={{
+                    {error && <span style={{
                         color: "red"}}>
                             Something went wrong!
-                        </span>} */}
+                        </span>}
                 </div>
             </div>
         </div>

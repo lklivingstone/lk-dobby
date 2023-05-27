@@ -53,7 +53,7 @@ const Home = () => {
                 }
             };
             
-            const response = await axios.post('http://localhost:5001/api/upload', formData, config);
+            const response = await axios.post('https://lk-dobby.onrender.com/api/upload', formData, config);
 
             setResponse("Success");
             setTimeout(() => {
