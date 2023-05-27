@@ -1,0 +1,36 @@
+.navbar {
+    position: relative;
+  }
+  
+  .search-icon {
+    cursor: pointer;
+  }
+  
+  .search-bar {
+    width: 0;
+    height: 100%;
+    overflow: hidden;
+    transition: width 0.3s ease;
+  }
+  
+  .search-bar.open {
+    width: 50%; /* Adjust the width as per your requirement */
+  }
+  
+  .search-bar input {
+    width: 100%;
+    height: 100%;
+    padding: 8px;
+    border: none;
+    outline: none;
+    background: none;
+  }
+  
+.border {
+    position: absolute;
+    bottom: 0;
+    left: 5%; /* Adjust the left percentage to control the width of the border */
+    width: 90%; /* Adjust the width percentage to control the width of the border */
+    height: 1px; /* Adjust the height as per your requirement */
+    background-color: rgb(48, 48, 48); /* Adjust the border color as per your requirement */
+}
