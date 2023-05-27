@@ -1,70 +1,20 @@
-# Getting Started with Create React App
+Deployment:
+Frontend: Netlify
+Backend: Render
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Login credentials (You can create your own account and log in as well): 
+Username: lk
+Password: lk
 
-## Available Scripts
+Description of the application:
+The User will log in with the option of uploading an image or viewing their uploaded images. They can also do search operations on their images.
 
-In the project directory, you can run:
+The flow of the application:
+The user will upload an image, the API will use Multer to handle file uploads through HTTP requests and save them in the server temporarily. Then the image will be uploaded to Imgur and the URL of the uploaded image is saved in MongoDB along with its name and the user id.
+The search operation is done using RegExp, a built-in object in Javascript, which does pattern-matching on text with strings. A list of images uploaded by the users is loaded and then pattern-matching is done on its filenames.
 
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Hosting images on a separate hosting platform and storing the image links in a database instead of uploading the entire image into the database has several advantages:
+Storing images directly in a database can lead to increased storage requirements, especially for large numbers of images or high-resolution images. 
+Image hosting platforms are designed to deliver images efficiently, with optimized caching, content delivery networks (CDNs), and other features that enhance performance. Serving images from a dedicated platform can reduce the load on your database and improve the overall responsiveness and scalability of your application.
+When images are stored separately utilizing a CDN, images can be served from geographically distributed servers closer to the end-user, reducing latency and improving page load times. This can significantly enhance the user experience of your application, especially for users located in different regions.
+Storing image links in the database enables efficient search operations without the need to search through binary image data. Search techniques can be based on attributes like image names, tags, etc.
